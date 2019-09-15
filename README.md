@@ -45,7 +45,7 @@ Here above is the CRON expression to be parsed and second part is the command to
 |hour|					0|
 |day of month|			1 15|
 |month	|				1 2 3 4 5 6 7 8 9 10 11 12|
-|day of week	|		1 2 3 4 5|
+| week	|		1 2 3 4 5|
 |command|				/usr/bin/find|
 
 The above output will be printed to the console
