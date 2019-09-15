@@ -24,13 +24,13 @@ public class CronParserApplication implements CommandLineRunner {
 
 	@Autowired
 	private ICronParserFacade cronParserFacade;
-	
+
 	@Value("${expression}")
-	private String action;
+	private String expression;
 
 	public void run(String... args) throws Exception {
-		log.info("Input expression location is {}", action);
-		cronParserFacade.processCronExpression(action);
+		log.info("iNPUT expression is {}", expression);
+		cronParserFacade.processCronExpression(expression);
 	}
 
 	public static void main(String[] args) {

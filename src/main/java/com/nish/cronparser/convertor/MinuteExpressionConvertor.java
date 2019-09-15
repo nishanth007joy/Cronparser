@@ -1,8 +1,7 @@
 package com.nish.cronparser.convertor;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Calendar;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -48,8 +47,11 @@ public class MinuteExpressionConvertor implements IConvertor {
 		} else if (CharMatcher.anyOf(CRONTypes.FORWARD_SLASH.getTypeSymbol()).matchesAnyOf(indivudualExpression)) {
 			List<String> range = Splitter.on(CRONTypes.FORWARD_SLASH.getTypeSymbol()).splitToList(indivudualExpression);
 			return calculateWithFrequency(range, LocalTime.MAX.getMinute());
+		} else if (validateExpression.validateMinute(Arrays.asList(indivudualExpression))) {
+			return Optional.of(Arrays.asList(indivudualExpression));
+		} else {
+			return Optional.empty();
 		}
-		return Optional.empty();
 	}
 
 }

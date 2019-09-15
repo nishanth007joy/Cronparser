@@ -1,5 +1,6 @@
 package com.nish.cronparser.convertor;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -47,8 +48,11 @@ public class DayOfMonthExpressionConvertor implements IConvertor {
 		} else if (CharMatcher.anyOf(CRONTypes.FORWARD_SLASH.getTypeSymbol()).matchesAnyOf(indivudualExpression)) {
 			List<String> range = Splitter.on(CRONTypes.FORWARD_SLASH.getTypeSymbol()).splitToList(indivudualExpression);
 			return calculateWithFrequency(range, 31);
+		} else if (validateExpression.validateDays(Arrays.asList(indivudualExpression))) {
+			return Optional.of(Arrays.asList(indivudualExpression));
+		} else {
+			return Optional.empty();
 		}
-		return Optional.empty();
 	}
 
 }

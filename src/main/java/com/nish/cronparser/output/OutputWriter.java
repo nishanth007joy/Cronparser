@@ -18,6 +18,7 @@ public class OutputWriter implements IOutputWriter {
 		log.info("Day Of Month {}", cronExpressionBO.getDayOfTheMonth());
 		log.info("Month {}", cronExpressionBO.getMonth());
 		log.info("Day of Week {}", cronExpressionBO.getDayOfWeek());
+		log.info("COMMAND {}", cronExpressionBO.getCommandToBeExecuted());
 	}
 
 }

@@ -15,43 +15,43 @@ import org.mockito.Mock;
 import com.nish.cronparser.basetest.BaseTest;
 import com.nish.cronparser.validation.IValidateExpression;
 
-public class DayOfMonthExpressionConvertorTest extends BaseTest{
+public class WeekExpressionConvertorTest extends BaseTest {
 
 	@InjectMocks
-	private IConvertor dayOfMonthExpressionConvertor = new DayOfMonthExpressionConvertor();
+	private IConvertor weekExpressionConvertor = new WeekExpressionConvertor();
 
 	@Mock
 	private IValidateExpression validateExpression;
 
 	@Test
 	public void testConvertExpressionRange() {
-		when(validateExpression.validateDaysRange(ArgumentMatchers.anyString(), ArgumentMatchers.anyString()))
+		when(validateExpression.validateWeekRange(ArgumentMatchers.anyString(), ArgumentMatchers.anyString()))
 				.thenReturn(true);
-		List<String> monthsActual = dayOfMonthExpressionConvertor.convertExpression("2-6").get();
+		List<String> monthsActual = weekExpressionConvertor.convertExpression("2-6").get();
 		assertThat(monthsActual).containsExactly("2", "3", "4", "5", "6");
 	}
 
 	@Test
 	public void testConvertExpressionAll() {
-		when(validateExpression.validateDaysRange(ArgumentMatchers.anyString(), ArgumentMatchers.anyString()))
+		when(validateExpression.validateWeekRange(ArgumentMatchers.anyString(), ArgumentMatchers.anyString()))
 				.thenReturn(true);
-		List<String> monthsActual = dayOfMonthExpressionConvertor.convertExpression("*").get();
+		List<String> monthsActual = weekExpressionConvertor.convertExpression("*").get();
 		assertThat(monthsActual).containsExactlyElementsOf(
-				IntStream.rangeClosed(1, 31).mapToObj(month -> String.valueOf(month)).collect(Collectors.toList()));
+				IntStream.rangeClosed(1, 7).mapToObj(month -> String.valueOf(month)).collect(Collectors.toList()));
 	}
 
 	@Test
 	public void testConvertExpressionComaSeparated() {
-		when(validateExpression.validateDays(ArgumentMatchers.anyList())).thenReturn(true);
-		List<String> monthsActual = dayOfMonthExpressionConvertor.convertExpression("2,6").get();
+		when(validateExpression.validateWeeks(ArgumentMatchers.anyList())).thenReturn(true);
+		List<String> monthsActual = weekExpressionConvertor.convertExpression("2,6").get();
 		assertThat(monthsActual).containsExactly("2", "6");
 
 	}
 
 	@Test
 	public void testConvertExpressionSingleValue() {
-		when(validateExpression.validateDays(ArgumentMatchers.anyList())).thenReturn(true);
-		List<String> monthsActual = dayOfMonthExpressionConvertor.convertExpression("2").get();
+		when(validateExpression.validateWeeks(ArgumentMatchers.anyList())).thenReturn(true);
+		List<String> monthsActual = weekExpressionConvertor.convertExpression("2").get();
 		assertThat(monthsActual).containsExactly("2");
 	}
 

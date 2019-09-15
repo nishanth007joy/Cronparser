@@ -1,6 +1,7 @@
 package com.nish.cronparser.convertor;
 
 import java.time.LocalTime;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -48,9 +49,12 @@ public class HourExpressionConvertor implements IConvertor {
 			List<String> range = Splitter.on(CRONTypes.FORWARD_SLASH.getTypeSymbol()).splitToList(indivudualExpression);
 			return calculateWithFrequency(range, LocalTime.MAX.getHour());
 
-		}
+		} else if (validateExpression.validateHour(Arrays.asList(indivudualExpression))) {
+			return Optional.of(Arrays.asList(indivudualExpression));
+		} else {
 
-		return Optional.empty();
+			return Optional.empty();
+		}
 	}
 
 }

@@ -49,7 +49,7 @@ public class ValidateExpression implements IValidateExpression {
 
 	@Override
 	public boolean validateSeconds(List<String> seconds) {
-		return seconds.stream().map(second -> Integer.parseInt(second)).allMatch(second -> second <= 59 && second >= 1);
+		return seconds.stream().map(second -> Integer.parseInt(second)).allMatch(second -> second <= 59 && second >= 0);
 	}
 
 	@Override
@@ -72,7 +72,7 @@ public class ValidateExpression implements IValidateExpression {
 
 	@Override
 	public boolean validateHour(List<String> hours) {
-		return hours.stream().map(second -> Integer.parseInt(second)).allMatch(second -> second <= 23 && second >= 1);
+		return hours.stream().map(second -> Integer.parseInt(second)).allMatch(second -> second <= 23 && second >= 0);
 
 	}
 
@@ -84,7 +84,7 @@ public class ValidateExpression implements IValidateExpression {
 
 	@Override
 	public boolean validateMinute(List<String> hours) {
-		return hours.stream().map(second -> Integer.parseInt(second)).allMatch(second -> second <= 59 && second >= 1);
+		return hours.stream().map(second -> Integer.parseInt(second)).allMatch(second -> second <= 59 && second >= 0);
 
 	}
 

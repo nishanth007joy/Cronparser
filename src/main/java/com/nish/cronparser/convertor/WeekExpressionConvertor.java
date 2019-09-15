@@ -1,6 +1,7 @@
 package com.nish.cronparser.convertor;
 
 import java.time.DayOfWeek;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -16,7 +17,7 @@ import com.nish.cronparser.types.CRONTypes;
 import com.nish.cronparser.validation.IValidateExpression;
 
 @Service(value = "dayOfWeekConverter")
-public class DayOfWeekExpressionConvertor implements IConvertor {
+public class WeekExpressionConvertor implements IConvertor {
 
 	@Autowired
 	private IValidateExpression validateExpression;
@@ -46,8 +47,11 @@ public class DayOfWeekExpressionConvertor implements IConvertor {
 		} else if (CharMatcher.anyOf(CRONTypes.FORWARD_SLASH.getTypeSymbol()).matchesAnyOf(indivudualExpression)) {
 			List<String> range = Splitter.on(CRONTypes.FORWARD_SLASH.getTypeSymbol()).splitToList(indivudualExpression);
 			return calculateWithFrequency(range, DayOfWeek.SUNDAY.getValue());
+		} else if (validateExpression.validateWeeks(Arrays.asList(indivudualExpression))) {
+			return Optional.of(Arrays.asList(indivudualExpression));
+		} else {
+			return Optional.empty();
 		}
-		return Optional.empty();
 	}
 
 }

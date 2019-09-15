@@ -24,7 +24,7 @@ public interface IValidateExpression {
 	public boolean validateHourRange(String lowerHourk, String upperHour);
 
 	public boolean validateHour(List<String> hours);
-	
+
 	public boolean validateMinuteRange(String lowerHourk, String upperHour);
 
 	public boolean validateMinute(List<String> hours);

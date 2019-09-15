@@ -71,7 +71,8 @@ public class InputParser implements IInputParser {
 				.collect(Collectors.joining(" "));
 
 		return CronExpressionBO.builder().minutes(minuteConverted).dayOfTheMonth(dayOfMonthConverted)
-				.hours(hourConverted).dayOfWeek(dayOfWeekConverted).month(monthConverted).build();
+				.hours(hourConverted).dayOfWeek(dayOfWeekConverted).month(monthConverted)
+				.commandToBeExecuted(splittedExpression.get(5)).build();
 	}
 
 }
