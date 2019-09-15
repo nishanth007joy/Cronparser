@@ -24,7 +24,7 @@ mvn clean install
 You can run the executable spring boot jar from the target folder.
 
 ```
-java -jar Cronparser-0.0.1-SNAPSHOT.jar 
+java -jar Cronparser-0.0.1-SNAPSHOT.jar  --expression= "*/15 0 1,15 * 1-5 /usr/bin/find"
 ```
 
 Where first argument is the location of input file and second argument is location where output of processed input to be saved.
