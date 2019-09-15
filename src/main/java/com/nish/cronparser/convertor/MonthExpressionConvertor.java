@@ -1,6 +1,7 @@
 package com.nish.cronparser.convertor;
 
 import java.time.Month;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -45,8 +46,14 @@ public class MonthExpressionConvertor implements IConvertor {
 					.mapToObj(minute -> String.valueOf(minute)).collect(Collectors.toList()));
 
 		} else if (CRONTypes.FORWARD_SLASH.getCheckType().test(indivudualExpression)) {
+
 			List<String> range = Splitter.on(CRONTypes.FORWARD_SLASH.getTypeSymbol()).splitToList(indivudualExpression);
 			return calculateWithFrequency(range, Month.DECEMBER.getValue());
+
+		} else if (validateExpression.validateMonths(Arrays.asList(indivudualExpression))) {
+
+			return Optional.of(Arrays.asList(indivudualExpression));
+
 		}
 		return Optional.empty();
 	}
