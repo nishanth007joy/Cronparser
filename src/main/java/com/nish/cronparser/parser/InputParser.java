@@ -11,30 +11,30 @@ import org.springframework.util.StringUtils;
 
 import com.google.common.base.Splitter;
 import com.nish.cronparser.bo.CronExpressionBO;
-import com.nish.cronparser.convertor.IConvertor;
+import com.nish.cronparser.converter.IConverter;
 import com.nish.cronparser.exception.ParseException;
 
 @Service
 public class InputParser implements IInputParser {
 	@Autowired
 	@Qualifier(value = "minuteConvertor")
-	private IConvertor minuteConverter;
+	private IConverter minuteConverter;
 
 	@Autowired
 	@Qualifier(value = "dayOfMonthConverter")
-	private IConvertor dayOfMonthConverter;
+	private IConverter dayOfMonthConverter;
 
 	@Autowired
 	@Qualifier(value = "hourConverter")
-	private IConvertor hourConverter;
+	private IConverter hourConverter;
 
 	@Autowired
 	@Qualifier(value = "dayOfWeekConverter")
-	private IConvertor dayOfWeekConverter;
+	private IConverter dayOfWeekConverter;
 
 	@Autowired
 	@Qualifier(value = "monthConverter")
-	private IConvertor monthConverter;
+	private IConverter monthConverter;
 
 	public CronExpressionBO parseCronExpressionAndCreateExecutionPattern(String cronExpression) {
 

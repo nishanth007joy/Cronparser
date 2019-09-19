@@ -1,4 +1,4 @@
-package com.nish.cronparser.convertor;
+package com.nish.cronparser.converter;
 
 import java.time.DayOfWeek;
 import java.util.Arrays;
@@ -17,7 +17,7 @@ import com.nish.cronparser.types.CRONTypes;
 import com.nish.cronparser.validation.IValidateExpression;
 
 @Service(value = "dayOfWeekConverter")
-public class WeekExpressionConvertor implements IConvertor {
+public class WeekExpressionConverter implements IConverter {
 
 	@Autowired
 	private IValidateExpression validateExpression;

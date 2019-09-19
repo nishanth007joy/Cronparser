@@ -1,4 +1,4 @@
-package com.nish.cronparser.convertor;
+package com.nish.cronparser.converter;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
@@ -15,14 +15,16 @@ import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.nish.cronparser.basetest.BaseTest;
+import com.nish.cronparser.converter.IConverter;
+import com.nish.cronparser.converter.MinuteExpressionConverter;
 import com.nish.cronparser.validation.IValidateExpression;
 
 @RunWith(SpringRunner.class)
 
-public class MinuteExpressionConvertorTest extends BaseTest{
+public class MinuteExpressionConverterTest extends BaseTest{
 
 	@InjectMocks
-	private IConvertor minuteExpressionConvertor = new MinuteExpressionConvertor();
+	private IConverter minuteExpressionConvertor = new MinuteExpressionConverter();
 
 	@Mock
 	private IValidateExpression validateExpression;

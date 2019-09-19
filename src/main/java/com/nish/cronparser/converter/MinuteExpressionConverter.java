@@ -1,4 +1,4 @@
-package com.nish.cronparser.convertor;
+package com.nish.cronparser.converter;
 
 import java.time.LocalTime;
 import java.util.Arrays;
@@ -17,7 +17,7 @@ import com.nish.cronparser.types.CRONTypes;
 import com.nish.cronparser.validation.IValidateExpression;
 
 @Service(value = "minuteConvertor")
-public class MinuteExpressionConvertor implements IConvertor {
+public class MinuteExpressionConverter implements IConverter {
 
 	@Autowired
 	private IValidateExpression validateExpression;

@@ -1,4 +1,4 @@
-package com.nish.cronparser.convertor;
+package com.nish.cronparser.converter;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
@@ -13,12 +13,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import com.nish.cronparser.basetest.BaseTest;
+import com.nish.cronparser.converter.DayOfMonthExpressionConverter;
+import com.nish.cronparser.converter.IConverter;
 import com.nish.cronparser.validation.IValidateExpression;
 
-public class DayOfMonthExpressionConvertorTest extends BaseTest{
+public class DayOfMonthExpressionConverterTest extends BaseTest{
 
 	@InjectMocks
-	private IConvertor dayOfMonthExpressionConvertor = new DayOfMonthExpressionConvertor();
+	private IConverter dayOfMonthExpressionConvertor = new DayOfMonthExpressionConverter();
 
 	@Mock
 	private IValidateExpression validateExpression;

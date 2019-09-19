@@ -1,4 +1,4 @@
-package com.nish.cronparser.convertor;
+package com.nish.cronparser.converter;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +16,7 @@ import com.nish.cronparser.types.CRONTypes;
 import com.nish.cronparser.validation.IValidateExpression;
 
 @Service(value = "dayOfMonthConverter")
-public class DayOfMonthExpressionConvertor implements IConvertor {
+public class DayOfMonthExpressionConverter implements IConverter {
 
 	@Autowired
 	private IValidateExpression validateExpression;

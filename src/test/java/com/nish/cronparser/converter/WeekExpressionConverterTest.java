@@ -1,4 +1,4 @@
-package com.nish.cronparser.convertor;
+package com.nish.cronparser.converter;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
@@ -13,12 +13,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import com.nish.cronparser.basetest.BaseTest;
+import com.nish.cronparser.converter.IConverter;
+import com.nish.cronparser.converter.WeekExpressionConverter;
 import com.nish.cronparser.validation.IValidateExpression;
 
-public class WeekExpressionConvertorTest extends BaseTest {
+public class WeekExpressionConverterTest extends BaseTest {
 
 	@InjectMocks
-	private IConvertor weekExpressionConvertor = new WeekExpressionConvertor();
+	private IConverter weekExpressionConvertor = new WeekExpressionConverter();
 
 	@Mock
 	private IValidateExpression validateExpression;

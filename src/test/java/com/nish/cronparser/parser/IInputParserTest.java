@@ -13,7 +13,7 @@ import org.mockito.Mock;
 
 import com.nish.cronparser.basetest.BaseTest;
 import com.nish.cronparser.bo.CronExpressionBO;
-import com.nish.cronparser.convertor.IConvertor;
+import com.nish.cronparser.converter.IConverter;
 
 public class IInputParserTest extends BaseTest {
 
@@ -21,19 +21,19 @@ public class IInputParserTest extends BaseTest {
 	private IInputParser inputParse = new InputParser();
 
 	@Mock
-	private IConvertor minuteConverter;
+	private IConverter minuteConverter;
 
 	@Mock
-	private IConvertor dayOfMonthConverter;
+	private IConverter dayOfMonthConverter;
 
 	@Mock
-	private IConvertor hourConverter;
+	private IConverter hourConverter;
 
 	@Mock
-	private IConvertor dayOfWeekConverter;
+	private IConverter dayOfWeekConverter;
 
 	@Mock
-	private IConvertor monthConverter;
+	private IConverter monthConverter;
 
 	@Test
 	public void testParseCronExpressionAndCreateExecutionPattern() {

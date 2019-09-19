@@ -1,4 +1,4 @@
-package com.nish.cronparser.convertor;
+package com.nish.cronparser.converter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,11 +11,11 @@ import com.google.common.base.CharMatcher;
 import com.nish.cronparser.types.CRONTypes;
 
 /**
- * 
+ * This interface is implemented by different types of converter
  * @author Nishanth Mathew Joy
  *
  */
-public interface IConvertor {
+public interface IConverter {
 	/**
 	 * 
 	 * @param indivudualExpression
@@ -24,6 +24,8 @@ public interface IConvertor {
 	public Optional<List<String>> convertExpression(String indivudualExpression);
 
 	/**
+	 * Calculation for repetition with a frequency
+	 * 
 	 * @param range
 	 * @return
 	 */
@@ -41,6 +43,7 @@ public interface IConvertor {
 	}
 
 	/**
+	 * This is to calculate values for Asterisk expression in CRON
 	 * 
 	 * @param lowerLimit
 	 * @param upperLimit
